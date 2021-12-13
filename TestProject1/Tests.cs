@@ -16,7 +16,7 @@ namespace TestProject1
         [ClassInitialize]
         public static void SetUp(TestContext testContext)
         {
-            _client = null;//new HttpClient();
+            _client = null;
 
             clientSubscriptionService = new ClientSubscriptionService(_client);
         }
@@ -37,7 +37,7 @@ namespace TestProject1
             var id = clientSubscriptionService.AddCustomer("Bobby Newman").Result;
             Customer customer = clientSubscriptionService.GetCustomerById(id).Result;
             bool success = clientSubscriptionService.RemoveCustomer(customer.userId).Result;
-            //customer = clientSubscriptionService.GetCustomerById(id).Result;
+
             var customers = clientSubscriptionService.GetAllCustomers().Result;
             
 
@@ -47,14 +47,13 @@ namespace TestProject1
         [TestMethod]
         public void TestCustomerHasSubScriptionType()
         {
-            //subscriptionController.AddCustomer("Barbara Styles");
             var userId = clientSubscriptionService.AddCustomer("Barbara Styles").Result;
 
-            var customer = /*subscriptionController*/clientSubscriptionService.GetAllCustomers().Result
+            var customer = clientSubscriptionService.GetAllCustomers().Result
                 .FirstOrDefault(user => user.userName == "Barbara Styles");
 
-            clientSubscriptionService.AddSubscription(customer.userId, SubscriptionType.Broadband.ToString());
-            clientSubscriptionService.AddSubscription(customer.userId, SubscriptionType.TV.ToString());
+            var success = clientSubscriptionService.AddSubscription(customer.userId, SubscriptionType.Broadband.ToString()).Result;
+            success = clientSubscriptionService.AddSubscription(customer.userId, SubscriptionType.TV.ToString()).Result;
 
             //customer 1 already has the TV subscription
             Assert.IsNotNull(clientSubscriptionService.CustomerHasSubscriptionType(customer.userId, "TV"));
@@ -69,7 +68,6 @@ namespace TestProject1
         {
             //customer 1 already has the TV subscription
             Customer customer = clientSubscriptionService.GetCustomerById("1").Result;
-            int initialSubScriptionCount = customer.subscriptions.Count();
 
             clientSubscriptionService.AddSubscriptionIfNotExisting("1", "TV");
 
@@ -96,7 +94,7 @@ namespace TestProject1
         public void TestInvalidSubscriptionTypeDoesNotGetAdded()
         {
             var userId = clientSubscriptionService.AddCustomer("Barbara Styles").Result;
-            var customers = clientSubscriptionService.GetAllCustomers().Result;
+
             var customer = clientSubscriptionService.GetCustomerById(userId).Result;
             Assert.IsNotNull(customer);
 

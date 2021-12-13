@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jYu2aU681Wn0nD7FBBQXo7z5B/pdEjpVFmf6H6P1Xw0GBNaEW7KytnCWLIcFWphneEqgijti7sQkqs7riZ2NYQ==",
+  "dgSpecHash": "eIv0Dcnrk7+9qJwSVQ/+LrufIadlHPqzfq1XN7dBgFBdQywhcpyGSyJWIO74bgIdaIlFx0Og+Cwcc6CMT4thyw==",
   "success": true,
-  "projectFilePath": "E:\\OtherProjects\\Nuuday_Subscription-Service\\Nuuday_Subscription-Service\\TestProject1\\TestProject1.csproj",
+  "projectFilePath": "E:\\OtherProjects\\Nuuday-Challenge\\challenge-Nuuday_SubscriptionService\\TestProject1\\TestProject1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mia\\.nuget\\packages\\coverlet.collector\\3.1.0\\coverlet.collector.3.1.0.nupkg.sha512",
     "C:\\Users\\mia\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",

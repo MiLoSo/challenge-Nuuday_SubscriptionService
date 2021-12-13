@@ -11,7 +11,7 @@ namespace SubscriptionService_Nuuday.Client
     {
         public static HttpClient client = new HttpClient();
 
-        public static string apiPath = "https://localhost:7175/api/subscription"; //https://localhost:44316/api/subscription";
+        public static string apiPath = "https://localhost:7175/api/subscription";
 
         public ClientSubscriptionService(HttpClient _client = null)
         {
@@ -87,7 +87,10 @@ namespace SubscriptionService_Nuuday.Client
 
             //if the user had no such subscription type, log an error
             if (subscription == null)
-                return null;//throw new ClientSubscriptionException("Subscription of type \"" + type.ToString() + "\" did not exist on customer id " + userId);
+            {
+                return null;
+                //throw new ClientSubscriptionException("Subscription of type \"" + type.ToString() + "\" did not exist on customer id " + userId);
+            }
 
             return subscription;
         }
@@ -117,10 +120,6 @@ namespace SubscriptionService_Nuuday.Client
 
             var response = await client.PostAsync(uriBuilder.ToString(), null).ConfigureAwait(false);
 
-            /*string request = apiPath + "/addsubscription/" + userId + "/" + subscriptionType;
-            var content = new FormUrlEncodedContent(
-                new Dictionary<string, string>() { { "userId", userId }, { "subscriptionType", subscriptionType } });
-            HttpResponseMessage response = await client.PostAsync(request, content); //.GetAsync(path);*/
             if (response.IsSuccessStatusCode)
             {
                 var jsonstring = await response.Content.ReadAsStringAsync();
@@ -151,11 +150,6 @@ namespace SubscriptionService_Nuuday.Client
 
             var response = await client.PostAsync(uriBuilder.ToString(), null).ConfigureAwait(false);
 
-
-            /*var values = new Dictionary<string, string>() { { "userId", userId }, { "subscriptionId", subscriptionId } };
-            var content = new StringContent(JsonConvert.SerializeObject(values), Encoding.UTF8, "application/json");
-            string request = apiPath + "/cancelsubscription";
-            HttpResponseMessage response = await client.PostAsync(request, content);*/
             if (!response.IsSuccessStatusCode)
             {
                 throw new ClientSubscriptionException("Could not remove subscription " + subscriptionId + " on customer " + userId);
@@ -180,9 +174,6 @@ namespace SubscriptionService_Nuuday.Client
 
             var response = await client.PostAsync(uriBuilder.ToString(), null).ConfigureAwait(false);
 
-           /* string request = apiPath + "/cancelsubscription";
-            var values = new Dictionary<string, string>() { { "userId", userId }, { "subscriptionId", subscription.subscriptionId } };
-            HttpResponseMessage response = await client.PostAsync(request, new FormUrlEncodedContent(values));*/
             if (!response.IsSuccessStatusCode)
             {
                 throw new ClientSubscriptionException("Could not find subscription of type" + subscriptionType + " on customer " + userId);
@@ -262,10 +253,6 @@ namespace SubscriptionService_Nuuday.Client
 
             var response = await client.PostAsync(uriBuilder.ToString(), null).ConfigureAwait(false);
 
-
-            /*string request = apiPath + "/deletecustomer";
-            var values = new Dictionary<string, string>() { { "userId", userId } };
-            HttpResponseMessage response = await client.PostAsync(request, new FormUrlEncodedContent(values));*/
             if (response.IsSuccessStatusCode)
             {
                 var jsonResponse = await response.Content.ReadAsStringAsync();

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TWh5QFR+M9lTO1sFem0WXdMr4AfhQDVLfzsp/mLm39ng1SswyiDE8vzI+lyzF69dp8B/f7nJfVCSf9348z+uAg==",
+  "dgSpecHash": "PQz17+/3ZYJw4EDbFN01IMxnXz43/fhwTZfaUW08drfg86z4okRw9ZDYTahwgEscZr+ptybal9u1FIjR39PWGQ==",
   "success": true,
-  "projectFilePath": "E:\\OtherProjects\\Nuuday_Subscription-Service\\Nuuday_Subscription-Service\\SubscriptionService_Nuuday\\SubscriptionService_Nuuday.csproj",
+  "projectFilePath": "E:\\OtherProjects\\Nuuday-Challenge\\challenge-Nuuday_SubscriptionService\\SubscriptionService_Nuuday\\SubscriptionService_Nuuday.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mia\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\mia\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

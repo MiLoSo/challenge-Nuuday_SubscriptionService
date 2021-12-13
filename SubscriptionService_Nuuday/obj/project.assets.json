@@ -9733,11 +9733,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\OtherProjects\\Nuuday_Subscription-Service\\Nuuday_Subscription-Service\\SubscriptionService_Nuuday\\SubscriptionService_Nuuday.csproj",
+      "projectUniqueName": "E:\\OtherProjects\\Nuuday-Challenge\\challenge-Nuuday_SubscriptionService\\SubscriptionService_Nuuday\\SubscriptionService_Nuuday.csproj",
       "projectName": "SubscriptionService_Nuuday",
-      "projectPath": "E:\\OtherProjects\\Nuuday_Subscription-Service\\Nuuday_Subscription-Service\\SubscriptionService_Nuuday\\SubscriptionService_Nuuday.csproj",
+      "projectPath": "E:\\OtherProjects\\Nuuday-Challenge\\challenge-Nuuday_SubscriptionService\\SubscriptionService_Nuuday\\SubscriptionService_Nuuday.csproj",
       "packagesPath": "C:\\Users\\mia\\.nuget\\packages\\",
-      "outputPath": "E:\\OtherProjects\\Nuuday_Subscription-Service\\Nuuday_Subscription-Service\\SubscriptionService_Nuuday\\obj\\",
+      "outputPath": "E:\\OtherProjects\\Nuuday-Challenge\\challenge-Nuuday_SubscriptionService\\SubscriptionService_Nuuday\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mia\\AppData\\Roaming\\NuGet\\NuGet.Config",

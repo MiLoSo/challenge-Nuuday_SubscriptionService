@@ -11034,11 +11034,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\OtherProjects\\Nuuday_Subscription-Service\\Nuuday_Subscription-Service\\TestProject1\\TestProject1.csproj",
+      "projectUniqueName": "E:\\OtherProjects\\Nuuday-Challenge\\challenge-Nuuday_SubscriptionService\\TestProject1\\TestProject1.csproj",
       "projectName": "TestProject1",
-      "projectPath": "E:\\OtherProjects\\Nuuday_Subscription-Service\\Nuuday_Subscription-Service\\TestProject1\\TestProject1.csproj",
+      "projectPath": "E:\\OtherProjects\\Nuuday-Challenge\\challenge-Nuuday_SubscriptionService\\TestProject1\\TestProject1.csproj",
       "packagesPath": "C:\\Users\\mia\\.nuget\\packages\\",
-      "outputPath": "E:\\OtherProjects\\Nuuday_Subscription-Service\\Nuuday_Subscription-Service\\TestProject1\\obj\\",
+      "outputPath": "E:\\OtherProjects\\Nuuday-Challenge\\challenge-Nuuday_SubscriptionService\\TestProject1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mia\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -11055,8 +11055,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\OtherProjects\\Nuuday_Subscription-Service\\Nuuday_Subscription-Service\\SubscriptionService_Nuuday\\SubscriptionService_Nuuday.csproj": {
-              "projectPath": "E:\\OtherProjects\\Nuuday_Subscription-Service\\Nuuday_Subscription-Service\\SubscriptionService_Nuuday\\SubscriptionService_Nuuday.csproj"
+            "E:\\OtherProjects\\Nuuday-Challenge\\challenge-Nuuday_SubscriptionService\\SubscriptionService_Nuuday\\SubscriptionService_Nuuday.csproj": {
+              "projectPath": "E:\\OtherProjects\\Nuuday-Challenge\\challenge-Nuuday_SubscriptionService\\SubscriptionService_Nuuday\\SubscriptionService_Nuuday.csproj"
             }
           }
         }

@@ -13,15 +13,13 @@ namespace SubscriptionService_Nuuday.Controllers
         MemoryCacheEntryOptions cacheEntryOptions = new MemoryCacheEntryOptions()
               .SetSlidingExpiration(TimeSpan.FromMinutes(100));
 
-        public SubscriptionController(IMemoryCache memoryCache /*CustomersContext context*//*ILogger<SubscriptionController> logger*/)
+        public SubscriptionController(IMemoryCache memoryCache)
         {
-            //_logger = logger;
             _memoryCache = memoryCache;
+
+            //Set up some initial test data
             var newCustomer =  new Customer("1", "Alicia Keys", new List<Subscription>{
                 new Subscription(SubscriptionType.Broadband, "1-1", "1"), new Subscription(SubscriptionType.TV, "0001-02", "0001") });
-            /*  if (!_memoryCache.TryGetValue(newCustomer, out DateTime cacheValue))
-              {*/
-            
 
             _memoryCache.TryGetValue("customerKeys", out List<string> customerKeys);
             customerKeys = customerKeys ?? new List<string>();
@@ -54,7 +52,7 @@ namespace SubscriptionService_Nuuday.Controllers
         public async Task<bool> AddSubscription(string userId, string subScriptionType) //maybe other data
         {
             //add the subscription to the user... return updated list, or let client reload?
-            var user =  GetAllUsers().Result.FirstOrDefault(user => user.userId == userId);
+            var user = GetAllUsers().Result.FirstOrDefault(user => user.userId == userId);
 
             if (user == null)
             {
@@ -94,7 +92,7 @@ namespace SubscriptionService_Nuuday.Controllers
         {
             //delete the subscription on the user... return updated list, or let client reload?
             bool success = false;
-            //var user = internalCustomerList.FirstOrDefault(user => user.userId == userId);
+
             _memoryCache.TryGetValue(userId, out Customer user);
             
             if (user != null)
@@ -150,7 +148,9 @@ namespace SubscriptionService_Nuuday.Controllers
                 //log error, subscriptions still present, can't delete customer
                 return false;
             }
+
             _memoryCache.Remove(userId);
+
             //remove from list as well
             _memoryCache.TryGetValue("customerKeys", out List<string> customerKeys);
             if (customerKeys.Contains(userId))
