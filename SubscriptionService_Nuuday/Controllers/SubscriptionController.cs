@@ -51,7 +51,7 @@ namespace SubscriptionService_Nuuday.Controllers
         };
 
         [HttpPost("addSubscription")]
-        public async void AddSubscription(string userId, string subScriptionType) //maybe other data
+        public async Task<bool> AddSubscription(string userId, string subScriptionType) //maybe other data
         {
             //add the subscription to the user... return updated list, or let client reload?
             var user =  GetAllUsers().Result.FirstOrDefault(user => user.userId == userId);
@@ -59,20 +59,21 @@ namespace SubscriptionService_Nuuday.Controllers
             if (user == null)
             {
                 //log warning
-                return;
+                return false;
             }
 
             Enum.TryParse(subScriptionType, out SubscriptionType type);
             if (type == SubscriptionType.None)
             {
                 //log that subscription type was not valid
-                return;
+                return false;
             }
 
             var rng = new Random();
             var newSubscriptionId = user.userId + "-" + type;
             user.subscriptions.Add(new Subscription(type, newSubscriptionId, user.userId));
             SaveUser(user);
+            return true;
         }
 
         //overwrite old user

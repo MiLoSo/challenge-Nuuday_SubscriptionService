@@ -84,7 +84,7 @@ namespace TestProject1
             Customer customer = clientSubscriptionService.GetCustomerById("1").Result;
             int initialSubScriptionCount = customer.subscriptions.Count();
 
-            clientSubscriptionService.AddSubscription("1", "TV");
+            var success = clientSubscriptionService.AddSubscription("1", "TV").Result;
 
             customer = clientSubscriptionService.GetCustomerById(customer.userId).Result;
 
@@ -97,12 +97,12 @@ namespace TestProject1
         {
             var userId = clientSubscriptionService.AddCustomer("Barbara Styles").Result;
             var customers = clientSubscriptionService.GetAllCustomers().Result;
-            var customer = customers
-                .FirstOrDefault(user => user.userName == "Barbara Styles");
+            var customer = clientSubscriptionService.GetCustomerById(userId).Result;
+            Assert.IsNotNull(customer);
 
             int initialSubscriptionCount = customer.subscriptions.Count();
 
-            clientSubscriptionService.AddSubscription(userId, "blabla");
+            var success = clientSubscriptionService.AddSubscription(userId, "blabla").Result;
 
             customer = clientSubscriptionService.GetCustomerById(userId).Result;
 

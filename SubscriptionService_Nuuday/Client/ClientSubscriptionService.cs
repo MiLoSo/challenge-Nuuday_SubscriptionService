@@ -104,7 +104,7 @@ namespace SubscriptionService_Nuuday.Client
         }
 
         //duplicate subscription types allowed
-        public async void AddSubscription(string userId, string subscriptionType)
+        public async Task<bool> AddSubscription(string userId, string subscriptionType)
         {
             Uri path = new Uri(apiPath + "/addsubscription");
             var uriBuilder = new UriBuilder(path);
@@ -112,6 +112,8 @@ namespace SubscriptionService_Nuuday.Client
             parameters["userId"] = userId;
             parameters["subscriptionType"] = subscriptionType;
             uriBuilder.Query = parameters.ToString();
+
+            bool success = false;
 
             var response = await client.PostAsync(uriBuilder.ToString(), null).ConfigureAwait(false);
 
@@ -121,14 +123,15 @@ namespace SubscriptionService_Nuuday.Client
             HttpResponseMessage response = await client.PostAsync(request, content); //.GetAsync(path);*/
             if (response.IsSuccessStatusCode)
             {
-                var customersJsonString = await response.Content.ReadAsStringAsync();
-                var c = 0;
+                var jsonstring = await response.Content.ReadAsStringAsync();
+                success = JsonConvert.DeserializeObject<bool>(jsonstring);
 
             }
             else
             {
                 throw new ClientSubscriptionException("Could not add subscription of type" + subscriptionType + " to customer " + userId);
             }
+            return success;
         }
 
         public async void CancelSubscription(string userId, string subscriptionId)
