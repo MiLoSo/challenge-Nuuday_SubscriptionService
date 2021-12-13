@@ -1,7 +1,7 @@
 ##SubscriptionService
 
 subscription service that saves users and their subscriptions.
-Can add, red, and remove users and subscriptions
+Can add, read, and remove users and subscriptions
 
 --API controller--
 
